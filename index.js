@@ -1,10 +1,13 @@
 const express  = require("express");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const app = express();
+
+dotenv.config();
 
 const jobRoutes = require("./routes/job");
 
-mongoose.connect("mongodb+srv://reactjsgeekster:1eVv5hEKdNnAXs71@crudapi.rf1kmhx.mongodb.net/").
+mongoose.connect(process.env.DATABASE_URL).
 then(() => console.log("Connection With Mongoose Database Successfully")).
 catch(() => console.log("Error Connect To MongoDB"))
 
